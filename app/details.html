@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <html>
+    <head>
+    <script src="https://kit.fontawesome.com/de9d45e1c6.js" crossorigin="anonymous"></script>
+    <meta http-equiv="content-type">
+    <link rel="stylesheet" href="details.css">
+    <link rel="icon" type="image/png" href="">
+    <title>ANPR</title>
+    </head>
+    <body>
+    <div class="twoparts">
+        <div class="container">
+            <div class="containerhead">
+                <label for="Search" class="label1">LIST OF VEHICLES</label>
+                    <form action="" class="searchbar">
+                    <input type="text" id="myinput" placeholder="Search your vehicle....." onkeyup="searchFun()">
+                    </form>
+            </div>
+    <table  id="mytable">
+    <tr><td>Aditya Sharma<td><td>Maruti Swift</td><td>DL 07 AB 1234</td><td>123, Society Lane, Cityville</td></tr><tr><td>Bhavya Patel<td><td>Hyundai i20</td><td>MH 02 XY 5678</td><td>456, Society Lane, Cityville</td></tr><tr><td>Chetan Gupta<td><td>Honda City</td><td>TN 10 PQ 9012</td><td>789, Society Lane, Cityville</td></tr><tr><td>Deepika Khan<td><td>Tata Nexon</td><td>KA 05 CD 3456</td><td>012, Society Lane, Cityville</td></tr><tr><td>Ekansh Dubey<td><td>Mahindra XUV500</td><td>GJ 09 EF 7890</td><td>345, Society Lane, Cityville</td></tr><tr><td>Farah Joshi<td><td>Volkswagen Polo</td><td>RJ 04 GH 2345</td><td>678, Society Lane, Cityville</td></tr><tr><td>Gaurav Desai<td><td>Ford EcoSport</td><td>AP 03 IJ 6789</td><td>901, Society Lane, Cityville</td></tr><tr><td>Himani Mehta<td><td>Renault Kwid</td><td>UP 06 KL 0123</td><td>234, Society Lane, Cityville</td></tr><tr><td>Ishan Reddy<td><td>Maruti Baleno</td><td>WB 08 MN 4567</td><td>567, Society Lane, Cityville</td></tr><tr><td>Jaya Verma<td><td>Hyundai Creta</td><td>DL 01 OP 7890</td><td>890, Society Lane, Cityville</td></tr><tr><td>Karan Singh<td><td>Tata Harrier</td><td>KA 03 CD 9012</td><td>123, Society Lane, Cityville</td></tr><tr><td>Lakshmi Chaudhary<td><td>Maruti Ertiga</td><td>TN 09 EF 2345</td><td>456, Society Lane, Cityville</td></tr><tr><td>Mohan Patel<td><td>Honda Amaze</td><td>MH 06 PQ 5678</td><td>789, Society Lane, Cityville</td></tr><tr><td>Neha Sharma<td><td>Volkswagen Vento</td><td>GJ 07 IJ 9012</td><td>012, Society Lane, Cityville</td></tr><tr><td>Omkar Gupta<td><td>Maruti Dzire</td><td>RJ 02 KL 3456</td><td>345, Society Lane, Cityville</td></tr><tr><td>Pooja Mehta<td><td>Hyundai Verna</td><td>AP 05 PQ 6789</td><td>678, Society Lane, Cityville</td></tr><tr><td>Qamar Khan<td><td>Ford Figo</td><td>UP 09 EF 1234</td><td>901, Society Lane, Cityville</td></tr><tr><td>Rahul Joshi<td><td>Tata Altroz</td><td>DL 03 CD 5678</td><td>234, Society Lane, Cityville</td></tr><tr><td>Sneha Singh<td><td>Honda Jazz</td><td>KA 07 XY 9012</td><td>567, Society Lane, Cityville</td></tr><tr><td>Tanya Desai<td><td>Hyundai Venue</td><td>MH 09 AB 2345</td><td>890, Society Lane, Cityville</td></tr><tr><td>Ujjwal Verma<td><td>Maruti Celerio</td><td>GJ 04 KL 5678</td><td>123, Society Lane, Cityville</td></tr><tr><td>Vidya Patel<td><td>Tata Nexon EV</td><td>DL 06 CD 9012</td><td>456, Society Lane, Cityville</td></tr><tr><td>Kiran Menon<td><td>Tata Tiago</td><td>KL 65 H 4383</td><td>345, Society Lane, Cityville</td></tr><tr><td>Manish Patel<td><td>Skoda Rapid</td><td>MH2ODY2366</td><td>012, Society Lane, Cityville</td></tr><tr><td>Hardik Pandya<td><td>Hyundai Alcazar</td><td>MH43CC1745</td><td>789, Society Lane, Cityville</td></tr>
+    </table>  
+        </div>
+
+        </div>
+        <script>
+            const searchFun = () => {
+                let filter = document.getElementById('myinput').value.toUpperCase();
+
+                let myTable = document.getElementById('mytable');
+
+                let tr = myTable.getElementsByTagName('tr');
+
+                for (var i = 0; i < tr.length; i++) {
+                    let td = tr[i].getElementsByTagName('td')[3];
+
+                    if (td) {
+                        let textvalue = td.textContent || td.innerHTML;
+
+                        if (textvalue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        }
+                        else 
+                        {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+            </script>
+    </body>
+    </html>
+    

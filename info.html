@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <html>
+    <head>
+    <script src="https://kit.fontawesome.com/de9d45e1c6.js" crossorigin="anonymous"></script>
+    <meta http-equiv="content-type">
+    <link rel="stylesheet" href="app/anpr.css">
+    <link rel="icon" type="image/jpg" href="C:\Users\harsh\Desktop\ANPR\data\car-6366999_1920.jpg">
+    <title>ANPR</title>
+    </head>
+    <body onload="displayImages()">
+    <div class="twoparts">
+        <div class="container">
+
+    <div id="image-container"></div>
+    <table  id="mytable" style="display:flex; align-items:center; justify-content:center;">
+    <tr><td style='font-size: 3em; color:white;'>IONY4A<td></tr>
+    </table>
+    <div class="button" style="display:flex; justify-content: center;">
+        <a type="button" onclick="getDetails();" class="btn">Get Details</a>
+    </div>    
+    </div>
+    <script>
+      function displayImages() {
+        // Add the image paths here dynamically after they are saved
+        var imagePaths = [
+          "image_0.jpg",
+          "license_plate_0.jpg",
+          "license_plate_gray_0.jpg",
+          "license_plate_thresh_0.jpg"
+        ];
+    
+        var container = document.getElementById("image-container");
+    
+        for (var i = 0; i < imagePaths.length; i++) {
+          var img = document.createElement("img");
+          img.src = imagePaths[i];
+          container.appendChild(img);
+        }
+      }
+    </script>
+    <script>
+        function getDetails()
+        {
+        fetch('http://127.0.0.1:8000/details')
+         .then(()=>href="details.html")
+        }
+    </script>
+            <script>
+             $("tr").click
+             (
+             window.location = "con.html"
+             );
+            </script>
+    </body>
+    </html>
+    

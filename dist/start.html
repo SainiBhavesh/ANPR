@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>ANPR</title>
+ <link href="css/styles2.css" rel="stylesheet" >
+
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h1 class="mx-auto my-0 text-uppercase">ANPR</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">Upload A File</h2>
+                <form id="uploadForm" action="#" enctype="multipart/form-data">
+                  <input type="file" id="imageInput" name="image" accept="image/*">
+                  <input type="submit" value="Upload" onclick="upload()">
+                </form>
+              
+                
+            </div>
+        </div>
+    </div>
+</header>
+
+  <!-- <form id="uploadForm" action="#" enctype="multipart/form-data">
+    <input type="file" id="imageInput" name="image" accept="image/*">
+    <input type="submit" value="Upload" onclick="upload()">
+  </form> -->
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent form submission
+      
+      var formData = new FormData(this);
+      var xhr = new XMLHttpRequest();
+      
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var imagePath = xhr.responseText;
+          console.log("Image directory: " + imagePath);
+          // You can use the imagePath parameter in further processing
+        }
+      };
+      
+      xhr.open("POST", "http://127.0.0.1:8000/upload", true); // Replace "upload.php" with the server-side script URL
+      xhr.send(formData);
+    });
+
+  </script>
+</body>
+</html>
