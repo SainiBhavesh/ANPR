@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.anpr import anpr
 from app.details import details
 from app.util import NMS
+import shutil
 
 
 app=FastAPI()
@@ -21,12 +22,12 @@ def generate():
 async def upload_image(image: UploadFile = File(...)):
     # Save the uploaded file to a directory
     # Modify the path 'uploads/' to your desired directory
-    with open('C:\\Users\\Bhavesh Saini\\Desktop\\ANPR\\upload' + image.filename, 'wb') as f:
-        f.write(await image.read())
+    with open('temp.jpg', 'wb') as f:
+        shutil.copyfileobj(image.file, f)
 
     # Return the image directory as a response
-    anpr('C:\\Users\\Bhavesh Saini\\Desktop\\ANPR\\upload\\' + image.filename)
-    return {'image_directory': 'C:\\Users\\Bhavesh Saini\\Desktop\\upload\\' +image.filename}
+    anpr('temp.jpg')
+    return {'image_directory': image.filename}
     
 origins = ['*']
 

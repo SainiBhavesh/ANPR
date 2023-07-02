@@ -12,11 +12,11 @@ from PIL import Image
 # define constants
 def anpr(img_directory):
 
-    model_cfg_path = "C:\\Users\\Bhavesh Saini\\Desktop\\ANPR\\app\\model\\cfg\\darknet-yolov3.cfg"
-    model_weights_path = "C:\\Users\\Bhavesh Saini\\Desktop\\ANPR\\app\\model\\weights\\model.weights"
-    class_names_path = "C:\\Users\\Bhavesh Saini\\Desktop\\ANPR\\app\\model\\class.names"
+    model_cfg_path = "app\model\cfg\darknet-yolov3.cfg"
+    model_weights_path = "app\model\weights\model.weights"
+    class_names_path = "app\model\class.names"
 
-    input_dir = "C:\\Users\\Bhavesh Saini\\Desktop\\ANPR\\data"
+    input_dir = "./data"
     # img_path = "C:\\Users\\harsh\\Desktop\\ANPR\\data\\image1.jpg"
 
     c=1
@@ -24,7 +24,7 @@ def anpr(img_directory):
     for img_name in os.listdir(input_dir):
 
         if c>1:
-            break;
+            break
         # img_path = os.path.join(input_dir,img_name)
         img_path = img_directory
     # load class names
@@ -81,16 +81,16 @@ def anpr(img_directory):
             _, license_plate_thresh = cv2.threshold(license_plate_gray,64,255,cv2.THRESH_BINARY_INV)
 
             img_filename = f"image_{bbox_}.jpg"  # Generate a filename for the image
-            img_save_path = os.path.join('C:\\Users\\Bhavesh Saini\\Desktop\\ANPR', img_filename)  # Create the full save path
+            img_save_path = os.path.join('output', img_filename)  # Create the full save path
             cv2.imwrite(img_save_path, img)  # Save the image using cv2.imwrite()
             license_plate_filename = f"license_plate_{bbox_}.jpg"
-            license_plate_save_path = os.path.join('C:\\Users\\Bhavesh Saini\\Desktop\\ANPR', license_plate_filename)
+            license_plate_save_path = os.path.join('output', license_plate_filename)
             cv2.imwrite(license_plate_save_path, license_plate)
             license_plate_gray_filename = f"license_plate_gray_{bbox_}.jpg"
-            license_plate_gray_save_path = os.path.join('C:\\Users\\Bhavesh Saini\\Desktop\\ANPR', license_plate_gray_filename)
+            license_plate_gray_save_path = os.path.join('output', license_plate_gray_filename)
             cv2.imwrite(license_plate_gray_save_path, license_plate_gray)
             license_plate_thresh_filename = f"license_plate_thresh_{bbox_}.jpg"
-            license_plate_thresh_save_path = os.path.join('C:\\Users\\Bhavesh Saini\\Desktop\\ANPR', license_plate_thresh_filename)
+            license_plate_thresh_save_path = os.path.join('output', license_plate_thresh_filename)
             cv2.imwrite(license_plate_thresh_save_path, license_plate_thresh)
 
             output = reader.readtext(license_plate_gray)
@@ -148,10 +148,10 @@ def anpr(img_directory):
       function displayImages() {
         // Add the image paths here dynamically after they are saved
         var imagePaths = [
-          "image_0.jpg",
-          "license_plate_0.jpg",
-          "license_plate_gray_0.jpg",
-          "license_plate_thresh_0.jpg"
+          "output/image_0.jpg",
+          "output/license_plate_0.jpg",
+          "output/license_plate_gray_0.jpg",
+          "output/license_plate_thresh_0.jpg"
         ];
     
         var container = document.getElementById("image-container");
