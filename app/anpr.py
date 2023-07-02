@@ -12,11 +12,11 @@ from PIL import Image
 # define constants
 def anpr(img_directory):
 
-    model_cfg_path = "app\model\cfg\darknet-yolov3.cfg"
-    model_weights_path = "app\model\weights\model.weights"
-    class_names_path = "app\model\class.names"
+    model_cfg_path = "app/model/cfg/darknet-yolov3.cfg"
+    model_weights_path = "app/model/weights/model.weights"
+    class_names_path = "app/model/class.names"
 
-    input_dir = "./data"
+    input_dir = "data"
     # img_path = "C:\\Users\\harsh\\Desktop\\ANPR\\data\\image1.jpg"
 
     c=1
